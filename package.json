@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/Bhavipatel21/employee-directory",
+  "homepage": "http://Bhavipatel21.github.io/employee-directory",
   "name": "employee-directory",
   "version": "0.1.0",
   "private": true,
@@ -22,7 +22,7 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -b master -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
