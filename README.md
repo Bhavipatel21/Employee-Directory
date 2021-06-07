@@ -25,7 +25,7 @@ An employee or manager would benefit greatly from being able to view non-sensiti
 Navigate to : https://bhavipatel21.github.io/employee-directory/
 
 ## Mock-up 
-![Employee-Directory Homepage ](/empdirectory_01)
+![Employee-Directory Homepage ](./empdirectory_01.png)
 
 
 
