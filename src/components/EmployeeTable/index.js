@@ -1,13 +1,14 @@
 import React from "react";
 import API from "../../utils/API";
-import SearchBar from "../SearchEmployee/index";
-import { Table, Icon, Image } from "semantic-ui-react";
+import SearchEmployee from "../SearchEmployee/index";
+import { Table, Icon, Image, Container } from "semantic-ui-react";
 
 class EmployeeTable extends React.Component {
-    state = {
+state = {
         results: [],
-        sortOrder: "",
         search: "",
+        sortOrder: "",
+        
     };
 
     // When the component mounts, get a list of all available Employee
@@ -61,15 +62,13 @@ class EmployeeTable extends React.Component {
 
     render() {
         return (
-
+<Container  textAlign='center'>
             <div>
-
-                <SearchBar
-                    search={this.state.search}
-                    handleInputChange={this.handleInputChange}
-                    handleSearch={this.handleSearch}
-                />
-
+            <SearchEmployee
+                search={this.state.search}
+                handleInputChange={this.handleInputChange}
+                handleSearch={this.handleSearch}
+                /> 
                 <Table>
                     <Table.Header>
                         <Table.Row>
@@ -80,8 +79,20 @@ class EmployeeTable extends React.Component {
                             <Table.HeaderCell>Email</Table.HeaderCell>
                         </Table.Row>
                     </Table.Header>
-                    {this.state.results.map((items) => (
+                    {this.state.results.filter((list) => {
+                        if(!this.state.search){
+                            return list
+                        }
+                        else if (list.name.first.toLowerCase()
+                        .includes(this.state.search.toLowerCase()) ||
+                        list.name.last.toLowerCase().includes(this.state.search.toLowerCase()
+                        )){
+                            return list
+                        }
+                    })
+                    .map(items =>  (
                         <Table.Body>
+                            
                             <Table.Row key={items.login.uuid}>
                                 <Table.Cell>
                                     <Image src={items.picture.thumbnail} rounded size="mini" />
@@ -95,6 +106,7 @@ class EmployeeTable extends React.Component {
                     ))}
                 </Table>
             </div>
+            </Container>
         );
     }
 }

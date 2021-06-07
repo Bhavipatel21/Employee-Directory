@@ -1,21 +1,31 @@
 import React from 'react'
-import { Search } from 'semantic-ui-react'
+import { Form,Button,Container} from 'semantic-ui-react'
 
-const SearchBar = (props) => (
-    <Search>
-        <Search.Field>
-            <label>Search...</label>
-            <input
-                onChange={props.handleInputChange}
-                value={props.search}
-                name="search"
-                type="text"
-                className="form-control"
-                placeholder='Search directory for Employee'
-                id="search"
-            />
-        </Search.Field>
-    </Search>
-)
 
-export default SearchBar
+const SearchEmployee = (props) => {
+
+
+    return (
+ <Container  textAlign='center'>
+        <Form className="w-64 text-center">
+        <Form.Field>
+          <label> Search Employee</label>
+          <input 
+          type="search" 
+          value={props.search}
+          onChange={props.handleInputChange}
+          /> 
+            
+        </Form.Field>
+      
+      </Form>
+      </Container>
+      
+        
+    )
+
+}
+
+export default SearchEmployee
+
+
